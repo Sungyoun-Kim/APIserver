@@ -1,0 +1,32 @@
+{
+  "name": "myserver",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www --exec babel-node --presets @babel/preset-env"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "barbel": "0.0.9",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.6",
+    "request": "^2.88.2",
+    "sequelize": "^6.3.5",
+    "sequelize-auto": "^0.6.7",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-stage-2": "^7.8.3"
+  }
+}
