@@ -12,6 +12,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.member=require('./member')(sequelize,Sequelize);
+db.category=require('./category')(sequelize,Sequelize);
 
 
 

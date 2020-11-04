@@ -17,8 +17,8 @@ const makeMember= async(req,res)=>{
 const getOne=async(req,res)=>{
     try{
         const {userId}=req.params;
-        const post=await db.member.findOne({where:{member_uid:userId}})
-        if(post){return res.status(200).json(post);
+        const getOne=await db.member.findOne({where:{member_uid:userId}})
+        if(getOne){return res.status(200).json(getOne);
     }
     return res.status(404).send('no ID')
 }

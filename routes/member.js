@@ -2,11 +2,11 @@
 var router = express.Router();
 
 import express from 'express'
-import {get} from '../controllers/index.controller'
-import{makeMember} from '../controllers/index.controller'
-import{deleteMember} from '../controllers/index.controller'
-import{updateMember} from '../controllers/index.controller'
-import{getOne} from '../controllers/index.controller'  
+import {get} from '../controllers/member.controller'
+import{makeMember} from '../controllers/member.controller'
+import{deleteMember} from '../controllers/member.controller'
+import{updateMember} from '../controllers/member.controller'
+import{getOne} from '../controllers/member.controller'
 
 router.get('/',get)
 router.post('/',makeMember)
