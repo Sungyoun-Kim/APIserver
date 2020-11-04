@@ -9,7 +9,6 @@ var logger=require('morgan');
 var indexRouter=require('./routes/index');
 var usersRouter=require('./routes/member');
 var categoryRouter=require('./routes/category');
-const category = require('./models/category');
 var sequelize=require('./models').sequelize;
 /*const SequelizeAuto=require('sequelize-auto');
 const auto=new SequelizeAuto('mydb','hoseo123','hoseo123',{

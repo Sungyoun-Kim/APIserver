@@ -4,7 +4,7 @@ const getCatById=async(req,res)=>{
     try{
     const {catId}=req.params;
     const getCatById=await db.category.findOne({where:{cat_id:catId}})
-    if(getCatById){return res.status(200).json(getCatbyId)} 
+    if(getCatById){return res.status(200).json(getCatById)} 
 
     return res.status(404).send('no ID')
     
