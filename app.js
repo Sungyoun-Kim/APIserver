@@ -9,9 +9,10 @@ var logger=require('morgan');
 var indexRouter=require('./routes/index');
 var usersRouter=require('./routes/member');
 var categoryRouter=require('./routes/category');
+var boardRouter=require('./routes/board');
 var sequelize=require('./models').sequelize;
-/*const SequelizeAuto=require('sequelize-auto');
-const auto=new SequelizeAuto('mydb','hoseo123','hoseo123',{
+const SequelizeAuto=require('sequelize-auto');
+/*const auto=new SequelizeAuto('mydb','hoseo123','hoseo123',{
   host:'125.138.57.171',
   dialect:'mysql'
 });
@@ -29,6 +30,7 @@ app.use(cookieParser())
 
 app.use('/member', usersRouter)
 app.use('/category',categoryRouter)
+app.use('/board',boardRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

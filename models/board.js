@@ -41,7 +41,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     write_date: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: false,
+      defaultValue:sequelize.literal('now()')
     },
     end_date: {
       type: DataTypes.DATEONLY,
@@ -50,6 +51,32 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'board',
-    timestamps: false
-    });
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "board_id" },
+          { name: "category_cat_id" },
+          { name: "member_member_uid" },
+        ]
+      },
+      {
+        name: "fk_board_category_idx",
+        using: "BTREE",
+        fields: [
+          { name: "category_cat_id" },
+        ]
+      },
+      {
+        name: "fk_board_member1_idx",
+        using: "BTREE",
+        fields: [
+          { name: "member_member_uid" },
+        ]
+      },
+    ]
+  });
 };
