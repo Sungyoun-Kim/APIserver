@@ -6,7 +6,6 @@ var path=require('path');
 var cookieParser=require('cookie-parser');
 var logger=require('morgan');
 
-var indexRouter=require('./routes/index');
 var usersRouter=require('./routes/member');
 var categoryRouter=require('./routes/category');
 var boardRouter=require('./routes/board');
@@ -31,6 +30,8 @@ app.use(cookieParser())
 app.use('/member', usersRouter)
 app.use('/category',categoryRouter)
 app.use('/board',boardRouter)
+
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -49,7 +49,7 @@ const updateMember=async(req,res)=>{
     }
     throw new Error('User not Found');
     }
-     catch(error){
+    catch(error){
     return res.status(500).send(error.message);
 }
 };
