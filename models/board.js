@@ -4,7 +4,6 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('board', {
     board_id: {
-      autoIncrement: true,
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true
@@ -42,11 +41,12 @@ module.exports = function(sequelize, DataTypes) {
     write_date: {
       type: DataTypes.DATEONLY,
       allowNull: false,
-      defaultValue:sequelize.literal('now()')
+      defaultValue: DataTypes.NOW
     },
     end_date: {
       type: DataTypes.DATEONLY,
       allowNull: false
+      
     }
   }, {
     sequelize,
@@ -61,6 +61,14 @@ module.exports = function(sequelize, DataTypes) {
           { name: "board_id" },
           { name: "category_cat_id" },
           { name: "member_member_uid" },
+        ]
+      },
+      {
+        name: "board_UN",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "board_id" },
         ]
       },
       {

@@ -14,6 +14,7 @@ db.Sequelize = Sequelize;
 db.member=require('./member')(sequelize,Sequelize);
 db.category=require('./category')(sequelize,Sequelize);
 db.board=require('./board')(sequelize,Sequelize);
+db.applicant_table=require('./applicant_table')(sequelize,Sequelize);
 
 
 

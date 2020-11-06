@@ -5,13 +5,13 @@ var express=require('express');
 var path=require('path');
 var cookieParser=require('cookie-parser');
 var logger=require('morgan');
-
+var applicantRouter=require('./routes/applicant_table')
 var usersRouter=require('./routes/member');
 var categoryRouter=require('./routes/category');
 var boardRouter=require('./routes/board');
 var sequelize=require('./models').sequelize;
-const SequelizeAuto=require('sequelize-auto');
-/*const auto=new SequelizeAuto('mydb','hoseo123','hoseo123',{
+/*const SequelizeAuto=require('sequelize-auto');
+const auto=new SequelizeAuto('mydb','hoseo123','hoseo123',{
   host:'125.138.57.171',
   dialect:'mysql'
 });
@@ -27,6 +27,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
+app.use('/applicant',applicantRouter)
 app.use('/member', usersRouter)
 app.use('/category',categoryRouter)
 app.use('/board',boardRouter)

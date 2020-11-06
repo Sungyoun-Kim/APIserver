@@ -26,6 +26,14 @@ module.exports = function(sequelize, DataTypes) {
           { name: "cat_id" },
         ]
       },
+      {
+        name: "category_UN",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "cat_id" },
+        ]
+      },
     ]
   });
 };

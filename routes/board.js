@@ -1,5 +1,5 @@
 
-var router = express.Router();
+var router =express.Router();
 
 import express from 'express'
 import {createPost} from '../controllers/board.controller'
