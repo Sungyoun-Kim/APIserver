@@ -14,25 +14,17 @@ const makeApplicant=async(req,res)=>{
     }
     return res.json(makeApplicant)
 }
-const deleteApplicant=async(req,res)=>{
-    try{
-        const {memberId}=req.params;
+const updateApplicant=async(req,res)=>{
+    /*const boardId=req.params.boardId
+    const memberId=req.params.memberId*/
+    var query='DELETE FROM applicant_table WHERE board_board_id =boardId AND member_UID= "?" values(erqrer,qerq)'
+await db.sequelize.query(query,
+{   replacement: {boardId:'req.params.boardId',memberId:'req.params.memberId'},
+    type: db.sequelize.QueryTypes.DELETE}
+).then((result)=>(console.log(result)))
 
-        const deleted=db.applicant_table.findAll().then(db.applicant_table.destroy({where:{member_uid:memberId}}))
-        
-        /*const deleted=await db.applicant_table.destroy({where:{member_uid:memberId}})*/
-        if(deleted){
-            return res.send("applicant deleted")
-        }
-        throw new Error("member not found")
-    }
-    catch(error)
-    {
-        return res.status(500).send(error.message)
-    }
+
 }
-
-
 export{
-    getApplicantByBoardId,deleteApplicant,makeApplicant
+    getApplicantByBoardId,updateApplicant,makeApplicant
 }
