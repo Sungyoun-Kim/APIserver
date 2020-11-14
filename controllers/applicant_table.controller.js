@@ -14,17 +14,15 @@ const makeApplicant=async(req,res)=>{
     }
     return res.json(makeApplicant)
 }
-const updateApplicant=async(req,res)=>{
-    /*const boardId=req.params.boardId
-    const memberId=req.params.memberId*/
-    var query='DELETE FROM applicant_table WHERE board_board_id =boardId AND member_UID= "?" values(erqrer,qerq)'
-await db.sequelize.query(query,
-{   replacement: {boardId:'req.params.boardId',memberId:'req.params.memberId'},
-    type: db.sequelize.QueryTypes.DELETE}
-).then((result)=>(console.log(result)))
-
-
+const updateApplicant=async(req,res)=>{ /* 왜 없는값을 지우려해도 에러 안나는지 모르겠음*/
+    
+    const deleted=await db.sequelize.query("DELETE FROM applicant_table WHERE board_board_id =$1 AND member_uid= $2",
+{   bind: [req.params.boardId,req.params.memberId],
 }
+    ).then(res.send("update complete"))
+}
+
+
 export{
     getApplicantByBoardId,updateApplicant,makeApplicant
 }
