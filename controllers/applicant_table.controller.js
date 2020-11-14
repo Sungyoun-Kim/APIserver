@@ -1,5 +1,4 @@
 const db=require('../models')
-
 const getApplicantByBoardId=async(req,res)=>{
     const {boardId}=req.params
     const applicant=await db.applicant_table.findAll({where:{board_board_id:boardId}});
@@ -15,14 +14,20 @@ const makeApplicant=async(req,res)=>{
     return res.json(makeApplicant)
 }
 const updateApplicant=async(req,res)=>{ /* 왜 없는값을 지우려해도 에러 안나는지 모르겠음*/
-    
+    try{
     const deleted=await db.sequelize.query("DELETE FROM applicant_table WHERE board_board_id =$1 AND member_uid= $2",
 {   bind: [req.params.boardId,req.params.memberId],
-}
-    ).then(res.send("update complete"))
-}
+})
 
-
+if(deleted){ 
+    return res.send("delete complete")
+}
+throw new error("not found")
+}catch(error)
+{
+    res.status(500).send(error.message)
+}
+}
 export{
     getApplicantByBoardId,updateApplicant,makeApplicant
 }
